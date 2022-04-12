@@ -41,9 +41,7 @@
         <input type="text" id="rating" placeholder="IMBD Ratings">
         <input type="submit" id="submit">
     </form>
-    <div id="movies">
-
-    </div>
+   
 </body>
 
 </html>
@@ -80,21 +78,5 @@ function home(){
     // movieData = JSON.parse(localStorage.getItem("movies"));
     //    console.log(movieData.splice(5,1))
     //    localStorage.setItem("movies", JSON.stringify(movieData));
-   let data = JSON.parse(localStorage.getItem("movies"));
-data.map(function(el){
-    console.log(el)
-    var box = document.createElement("div");
-    let image = document.createElement("img");
-    
-    image.src = el.url;
-    let name = document.createElement("p");
-    name.innerText = el.name
-    let rating = document.createElement("p");
-    rating.innerText = el.rating
-   // console.log(name,image,rating)
-    box.append(image,name,rating);
-    console.log(box)
-    
-    document.querySelector("#movies").append(box)
-})
+
 </script>
