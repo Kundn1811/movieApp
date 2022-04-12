@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <style>
+        #form {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: auto;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: antiquewhite;
+        }
+
+        #form>input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 7px;
+        }
+        button{
+            margin: 30px;
+            padding: 8px 15px;
+            background-color: teal;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="home()">Home</button>
+    <form action="" id="form" onsubmit="setData(event)">
+        <input type="text" id="Mname" placeholder="Movie Name">
+        <input type="text" id="Rdate" placeholder="Release Date">
+        <input type="url" id="imgUrl" placeholder="Poster link">
+        <input type="text" id="rating" placeholder="IMBD Ratings">
+        <input type="submit" id="submit">
+    </form>
+    <div id="movies">
+
+    </div>
+</body>
+
+</html>
+<script>
+function home(){
+    window.location.href="index.html"
+}
+
+    function mObj(n, d, i, ra) {
+        this.name = n;
+        this.date = d;
+        this.url = i;
+        this.rating = ra
+    }
+    let movieData = JSON.parse(localStorage.getItem("movies")) || [];
+    function setData(e) {
+        e.preventDefault()
+        let mName = form.Mname.value;
+        let rDate = form.Rdate.value;
+        let img = form.imgUrl.value;
+        let rating = form.rating.value;
+
+        let obj = new mObj(mName, rDate, img, rating);
+        movieData.push(obj);
+
+        localStorage.setItem("movies", JSON.stringify(movieData));
+
+        form.Mname.value = null;
+        form.Rdate.value = null;
+        form.imgUrl.value = null;
+        form.rating.value = null;
+
+    }
+    // movieData = JSON.parse(localStorage.getItem("movies"));
+    //    console.log(movieData.splice(5,1))
+    //    localStorage.setItem("movies", JSON.stringify(movieData));
+   let data = JSON.parse(localStorage.getItem("movies"));
+data.map(function(el){
+    console.log(el)
+    var box = document.createElement("div");
+    let image = document.createElement("img");
+    
+    image.src = el.url;
+    let name = document.createElement("p");
+    name.innerText = el.name
+    let rating = document.createElement("p");
+    rating.innerText = el.rating
+   // console.log(name,image,rating)
+    box.append(image,name,rating);
+    console.log(box)
+    
+    document.querySelector("#movies").append(box)
+})
+</script>

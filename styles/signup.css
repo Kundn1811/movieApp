@@ -1,0 +1,29 @@
+#signup-form-div{
+    /* border: 2px solid orangered; */
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow:  rgb(4, 32, 251) 3.95px 3.95px 40.6px;
+    border-radius: 7px;
+    }
+    
+#formid{
+    display: flex;
+    flex-direction: column;
+    
+}
+#formid>input{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 7px;
+    border: none;
+}
+
+#submitbtn{
+    background-color: rgb(170, 177, 29);
+    color: rgb(245, 255, 243);
+    font-size: 16px;
+    font-weight: 550;
+    letter-spacing: 0.1em;
+   
+}

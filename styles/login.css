@@ -1,0 +1,24 @@
+#formm{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 25%;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: rgba(241, 11, 11, 1.55) 0px 5px 15px;
+    padding: 25px;
+    border-radius: 10px;
+}
+#formm>input{
+    padding: 10px;
+   
+    border-radius: 7px;
+    border: 1px solid red;
+
+}
+#subbtn{
+    background-color: red;
+    border: none;
+    color: white;
+  
+}
